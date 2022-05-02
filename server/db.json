@@ -1,0 +1,40 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "cover_url": "https://live.staticflickr.com/65535/51895923084_21c34b1162_o.jpg",
+      "name": "Show Henrique e Juliano",
+      "organizer_name": "HJ Eventos"
+    },
+    {
+      "id": 2,
+      "cover_url": "https://tpeventos.com.br/wp-content/uploads/2015/07/evento-000-1030x494.jpg",
+      "name": "Apraz 2.0",
+      "organizer_name": "Apraz Eventos"
+    },
+    {
+      "id": 3,
+      "cover_url": "https://www.londrinatur.com.br/wp-content/uploads/2019/02/appalusa-23-02.jpg",
+      "name": "Baile da 17",
+      "organizer_name": "17 Eventos"
+    },
+    {
+      "id": 4,
+      "cover_url": "https://eventicket.s3-sa-east-1.amazonaws.com/imgs/21815-img-prog-510x310-thiago-ventura-1.png",
+      "name": "Standup: Thiago",
+      "organizer_name": "Thiago Ventura"
+    },
+    {
+      "id": 5,
+      "cover_url": "https://eventicket.s3-sa-east-1.amazonaws.com/imgs/21815-img-prog-510x310-thiago-ventura-1.png",
+      "name": "Baile do Tubarão",
+      "organizer_name": "Ryan SP Eventos"
+    },
+    {
+      "id": 6,
+      "cover_url": "https://cdn-az.allevents.in/events1/banners/bfbf6261e816e2b510aec81484a1c92762a712cbd98dd6d60f7e9c933ad8bf3a-rimg-w523-h600-gmir.jpg?v=1579089203",
+      "name": "Baile da Marcone",
+      "organizer_name": "Marcone Bailes"
+    }
+  ]
+}
