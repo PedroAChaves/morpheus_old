@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:morpheus/modules/Home/start_page.dart';
-import 'package:morpheus/modules/Login/create_account.dart';
+import 'package:morpheus/modules/Login/login_page.dart';
 import 'package:morpheus/shared/themes/app_colors.dart';
 
 void main() {
@@ -22,7 +21,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Morpheus',
       theme: ThemeData(primaryColor: AppColors.primary),
-      home: const CreateAccount(),
+      home: const LoginPage(),
     );
   }
 }

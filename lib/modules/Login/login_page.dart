@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:morpheus/modules/Home/start_page.dart';
+import 'package:morpheus/modules/Login/create_account.dart';
 import 'package:morpheus/shared/themes/app_colors.dart';
 import 'package:morpheus/shared/themes/app_images.dart';
-import 'package:morpheus/shared/widgets/social_login/social_login_buttom.dart';
 import 'package:morpheus/shared/widgets/social_login/social_login_buttom_create_account.dart';
-import 'package:morpheus/shared/widgets/social_login/social_login_buttom_f.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -44,15 +44,18 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 cursorColor: AppColors.primary,
                 decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: AppColors.primary, width: 2),
-                    ),
-                    border: const OutlineInputBorder(),
-                    labelText: 'Email',
-                    floatingLabelStyle: TextStyle(color: AppColors.primary),
-                    fillColor: Colors.white,
-                    filled: true),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.primary, width: 2),
+                  ),
+                  border: const OutlineInputBorder(),
+                  labelText: 'Email',
+                  floatingLabelStyle: TextStyle(
+                    color: AppColors.primary,
+                    fontSize: 18,
+                  ),
+                  fillColor: Colors.white,
+                  filled: true,
+                ),
               ),
             ),
             Padding(
@@ -67,7 +70,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     border: const OutlineInputBorder(),
                     labelText: 'Senha',
-                    floatingLabelStyle: TextStyle(color: AppColors.primary),
+                    floatingLabelStyle: TextStyle(
+                      color: AppColors.primary,
+                      fontSize: 18,
+                    ),
                     fillColor: Colors.white,
                     filled: true),
               ),
@@ -75,39 +81,28 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.only(top: 10, left: 25, right: 25),
               child: CreateAccountButtom(onTap: () {
-                print('clicou');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const StartPage()),
+                );
               }),
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 6,
-                    child: SocialLoginButton(onTap: () {
-                      print('clicou');
-                    }),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    flex: 6,
-                    child: SocialLoginButtonF(onTap: () {
-                      print('clicou');
-                    }),
-                  ),
-                ],
-              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
               child: Expanded(
                 child: InkWell(
-                    onTap: () {
-                      print('object');
-                    },
-                    child: Text("Não tem conta, crie uma...",
-                        style: TextStyle(color: AppColors.textWhite))),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CreateAccount()),
+                    );
+                  },
+                  child: Text(
+                    "Não tem conta, crie uma...",
+                    style: TextStyle(color: AppColors.textWhite, fontSize: 18),
+                  ),
+                ),
               ),
             ),
           ],
