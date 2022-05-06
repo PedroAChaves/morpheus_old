@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:morpheus/modules/Home/start_page.dart';
 import 'package:morpheus/modules/Login/create_account.dart';
 import 'package:morpheus/shared/themes/app_colors.dart';
-import 'package:morpheus/shared/themes/app_images.dart';
-import 'package:morpheus/shared/widgets/social_login/social_login_buttom_create_account.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -27,27 +25,26 @@ class _LoginPageState extends State<LoginPage> {
         ),
         child: Column(
           children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 170, left: 50, right: 50),
-                  child: Image.asset(
-                    AppImages.logoMorpheus,
-                    width: 280,
-                    height: 200,
-                  ),
-                )
-              ],
-            ),
             Padding(
-              padding: const EdgeInsets.only(top: 40, left: 25, right: 25),
+              padding: const EdgeInsets.only(left: 50, right: 50, top: 90),
+              child: Center(
+                child: Image.asset(
+                  "images/logo_title.png",
+                  width: 280,
+                  height: 200,
+                  scale: 1,
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.only(top: 40, left: 25, right: 25),
               child: TextField(
                 cursorColor: AppColors.primary,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: AppColors.primary, width: 2),
                   ),
-                  border: const OutlineInputBorder(),
+                  border: OutlineInputBorder(),
                   labelText: 'Email',
                   floatingLabelStyle: TextStyle(
                     color: AppColors.primary,
@@ -58,8 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10, left: 25, right: 25),
+            const Padding(
+              padding: EdgeInsets.only(top: 10, left: 25, right: 25),
               child: TextField(
                 cursorColor: AppColors.primary,
                 obscureText: true,
@@ -68,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'Senha',
                     floatingLabelStyle: TextStyle(
                       color: AppColors.primary,
@@ -80,31 +77,68 @@ class _LoginPageState extends State<LoginPage> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10, left: 25, right: 25),
-              child: CreateAccountButtom(onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const StartPage()),
-                );
-              }),
+              child: SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: TextButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(AppColors.primary)),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const StartPage()),
+                    );
+                  },
+                  child: const Text(
+                    'Fazer Login',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ), //Text
+                ),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-              child: Expanded(
-                child: InkWell(
-                  onTap: () {
+              padding: const EdgeInsets.only(top: 10, left: 25, right: 25),
+              child: SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: TextButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(AppColors.primary)),
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) => const CreateAccount()),
                     );
                   },
-                  child: Text(
-                    "Não tem conta, crie uma...",
-                    style: TextStyle(color: AppColors.textWhite, fontSize: 18),
-                  ),
+                  child: const Text(
+                    'Não tem conta, crie uma...',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ), //Text
                 ),
               ),
             ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            //   child: Expanded(
+            //     child: InkWell(
+            //       onTap: () {
+            //         Navigator.push(
+            //           context,
+            //           MaterialPageRoute(
+            //               builder: (context) => const CreateAccount()),
+            //         );
+            //       },
+            //       child: const Text(
+            //         "Não tem conta, crie uma...",
+            //         style: TextStyle(color: AppColors.textWhite, fontSize: 18),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

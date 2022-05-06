@@ -18,10 +18,9 @@ class _MyHomePageState extends State<MyHomePage> {
       GlobalKey<RefreshIndicatorState>();
 
   List _events = [];
-  bool _isLoading = false;
+  bool _isLoading = true;
 
   Future<void> _refresh() async {
-    setState(() => _isLoading = true);
     try {
       var response = await http.get(Uri.parse('http://localhost:3000/events/'));
       setState(() => _events = jsonDecode(response.body));
@@ -64,12 +63,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: _events.length,
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 360,
-                  mainAxisExtent: 200,
+                  mainAxisExtent: 210,
                 ),
                 itemBuilder: (context, index) {
                   return EventCard(
                     title: _events[index]['name'],
                     organizerName: _events[index]['organizer_name'],
+                    coverUrl: _events[index]['cover_url'],
                     startDateTime: DateTime.now(),
                   );
                 },

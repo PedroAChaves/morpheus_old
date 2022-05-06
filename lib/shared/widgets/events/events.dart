@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:morpheus/shared/themes/app_colors.dart';
 
 class EventCard extends StatefulWidget {
   final String title;
   final String organizerName;
+  final String coverUrl;
   final DateTime startDateTime;
 
-  const EventCard(
-      {Key? key,
-      required this.title,
-      required this.organizerName,
-      required this.startDateTime})
-      : super(key: key);
+  const EventCard({
+    Key? key,
+    required this.title,
+    required this.organizerName,
+    required this.coverUrl,
+    required this.startDateTime,
+  }) : super(key: key);
 
   @override
   _EventCardState createState() => _EventCardState();
@@ -22,7 +25,7 @@ class _EventCardState extends State<EventCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 250,
       width: 190,
       decoration: BoxDecoration(
         boxShadow: [
@@ -42,11 +45,10 @@ class _EventCardState extends State<EventCard> {
             SizedBox(
               height: 120,
               width: 190,
-              child:
-                  Image.asset('images/events/festaGlow.png', fit: BoxFit.fill),
+              child: Image.network(widget.coverUrl, fit: BoxFit.fill),
             ),
             Container(
-              height: 70,
+              height: 75,
               padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 14),
               child: Column(
                 children: [
@@ -67,7 +69,7 @@ class _EventCardState extends State<EventCard> {
                         },
                         icon: Icon(
                           _isLiked ? Icons.star : Icons.star_border,
-                          color: Colors.amber[400],
+                          color: AppColors.accent,
                         ),
                       ),
                     ],

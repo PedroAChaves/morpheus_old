@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:morpheus/shared/widgets/search/map/google_map.dart';
 import 'package:morpheus/shared/widgets/search/see_events_button.dart';
 
 
@@ -13,12 +14,10 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Column(
         children: [
-          Image.asset(
-            'images/mapa.jpg',
-            scale: 1,
-          ),
+          const SizedBox(height: 400, child: SearchMap()),
           Container(
             padding: EdgeInsets.all(MediaQuery.of(context).size.width -
                 MediaQuery.of(context).size.width * 0.97),

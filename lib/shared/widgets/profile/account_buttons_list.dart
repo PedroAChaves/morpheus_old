@@ -26,6 +26,11 @@ class AccountsButtonList extends StatelessWidget {
             pagePath: "pagePath",
           ),
           AccountButton(
+            icon: Icon(Icons.check_circle_outlined),
+            text: Text("Verificar ingressos"),
+            pagePath: "pagePath",
+          ),
+          AccountButton(
             icon: Icon(Icons.info_outline),
             text: Text("Sobre o app"),
             pagePath: "/about",

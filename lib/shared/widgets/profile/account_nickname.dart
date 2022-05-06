@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:morpheus/shared/themes/app_colors.dart';
+import 'package:http/http.dart' as http;
 
 class NicknamePage extends StatefulWidget {
   final String? accountAvatarUrl;
@@ -23,24 +28,79 @@ class _NicknamePageState extends State<NicknamePage> {
     List<String> names = widget.accountName.split(' ');
     final String _initials = names.first.split('')[0] + names.last.split('')[0];
 
+    File imageFile;
+
+    _uploadAvatar(String filename, String url) async {
+      // try {
+      //   var request = http.MultipartRequest('POST', Uri.parse(url));
+      //   request.files.add(
+      //     // await http.MultipartFile.fromBytes('account_avatar', imageFile),
+      //   );
+      //   var response = await request.send();
+      //   var data =
+      //       jsonDecode(String.fromCharCodes(await response.stream.toBytes()));
+      //   print(data);
+      // } catch (e) {
+      //   print(e);
+      //   showDialog(
+      //     context: context,
+      //     builder: (BuildContext context) => AlertDialog(
+      //       title: const Text('Erro ao fazer o upload da foto de perfil'),
+      //       content: const Text(
+      //           'Houve um erro inesperado ao fazer o upload da imagem de perfil. Tente novamente mais tarde'),
+      //       actions: [
+      //         TextButton(
+      //           onPressed: () => Navigator.pop(context, 'OK'),
+      //           child: const Text('OK'),
+      //         ),
+      //       ],
+      //     ),
+      //   );
+      // }
+    }
+
+    _getFromGallery() async {
+      XFile pickedFile = (await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 1800,
+        maxHeight: 1800,
+      )) as XFile;
+
+      var uploadedFile = await pickedFile.readAsBytes();
+      setState(() {
+        imageFile = File(uploadedFile, "account_avatar");
+      });
+    }
+
     return Expanded(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
             onTap: () {
-              showDialog(
+              showModalBottomSheet(
+                isScrollControlled: true,
                 context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    content: const Text(
-                        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt eveniet optio quos dignissimos pariatur, et delectus ut ipsum, deserunt, nihil quas suscipit dolorum iste tempore. Autem ab ipsa recusandae id!"),
-                    actions: [
-                      TextButton(
-                        child: const Text("OK"),
-                        onPressed: () => Navigator.pop(context, 'OK'),
-                      )
-                    ],
+                backgroundColor: Colors.transparent,
+                builder: (context) {
+                  return SizedBox(
+                    height: MediaQuery.of(context).size.height - 200.0,
+                    width: double.infinity,
+                    child: Container(
+                      decoration: const BoxDecoration(color: AppColors.light),
+                      child: Column(
+                        children: [
+                          TextButton(
+                            onPressed: () => _getFromGallery(),
+                            child: const Text("Escolher nova imagem de perfil"),
+                          ),
+                          TextButton(
+                            onPressed: () => _getFromGallery(),
+                            child: const Text("Upload imagem"),
+                          ),
+                        ],
+                      ),
+                    ),
                   );
                 },
               );

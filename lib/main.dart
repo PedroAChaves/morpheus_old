@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:morpheus/modules/Login/login_page.dart';
-import 'package:morpheus/shared/themes/app_colors.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +19,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Morpheus',
-      theme: ThemeData(primaryColor: AppColors.primary),
+      theme: ThemeData(),
+      darkTheme: ThemeData(backgroundColor: const Color.fromARGB(0, 0, 0, 0)),
+      themeMode: ThemeMode.dark,
       home: const LoginPage(),
     );
   }

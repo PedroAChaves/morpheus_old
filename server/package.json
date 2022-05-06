@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "json-server ./db.json -d 1000"
+    "dev": "json-server ./db.json -d "
   },
   "author": "",
   "license": "ISC",

@@ -37,7 +37,7 @@ class _TicketDataState extends State<TicketData> {
                 ),
               ),
             ),
-            Image.asset("images/logo.png", width: 60),
+            Image.asset("images/logo_only.png", width: 40),
           ],
         ),
         const Padding(

@@ -17,7 +17,8 @@ class _BottomEditState extends State<BottomEdit> {
           onPressed: null,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(
-                const Color.fromARGB(255, 255, 255, 255)),
+              const Color.fromARGB(255, 255, 255, 255),
+            ),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),

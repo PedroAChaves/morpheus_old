@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:morpheus/shared/widgets/profile/account_buttons_list.dart';
 import 'package:morpheus/shared/widgets/profile/account_nickname.dart';
-import 'package:morpheus/shared/widgets/profile/bottom_edit.dart';
-import 'package:morpheus/shared/widgets/profile/buttom_sign_out.dart';
+import 'package:morpheus/shared/widgets/profile/button_edit.dart';
+import 'package:morpheus/shared/widgets/profile/button_sign_out.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: const EdgeInsets.only(top: 26),
                   child: Row(
                     children: const [
-                      ButtomSignOut(),
+                      ButtonSignOut(),
                     ],
                   )),
             ],

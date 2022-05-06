@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:morpheus/modules/Home/Bottom%20bar%20pages/Search_page.dart';
-import 'package:morpheus/modules/Home/Bottom%20bar%20pages/favorites_page.dart';
-import 'package:morpheus/modules/Home/Bottom%20bar%20pages/profile_page.dart';
-import 'package:morpheus/modules/Home/Bottom%20bar%20pages/tickets_page.dart';
+import 'package:morpheus/modules/Home/bottom_bar_pages/Favorites_page.dart';
+import 'package:morpheus/modules/Home/bottom_bar_pages/Profile_page.dart';
+import 'package:morpheus/modules/Home/bottom_bar_pages/Search_page.dart';
+import 'package:morpheus/modules/Home/bottom_bar_pages/Tickets_page.dart';
 import 'package:morpheus/modules/Home/home_page.dart';
+import 'package:morpheus/shared/themes/app_colors.dart';
 import 'package:morpheus/shared/widgets/home_bars/app_bar.dart';
 
 class StartPage extends StatefulWidget {
@@ -40,6 +41,9 @@ class _StartPageState extends State<StartPage> {
           animation: pageViewController,
           builder: (context, snapshot) {
             return BottomNavigationBar(
+              selectedLabelStyle: const TextStyle(
+                color: AppColors.light
+              ),
               currentIndex: pageViewController.page?.round() ?? 0,
               onTap: (index) {
                 pageViewController.jumpToPage(index);
@@ -47,28 +51,28 @@ class _StartPageState extends State<StartPage> {
               items: const <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
                   label: 'Home',
-                  icon: Icon(Icons.home),
-                  backgroundColor: Color(0xFFFC5404),
+                  icon: Icon(Icons.home, color: AppColors.light),
+                  backgroundColor:AppColors.primary,
                 ),
                 BottomNavigationBarItem(
                   label: 'Pesquisar',
-                  icon: Icon(Icons.search),
-                  backgroundColor: Color(0xFFFC5404),
+                  icon: Icon(Icons.search, color: AppColors.light),
+                  backgroundColor:AppColors.primary,
                 ),
                 BottomNavigationBarItem(
                   label: 'Favoritos',
-                  icon: Icon(Icons.favorite),
-                  backgroundColor: Color(0xFFFC5404),
+                  icon: Icon(Icons.favorite, color: AppColors.light),
+                  backgroundColor:AppColors.primary,
                 ),
                 BottomNavigationBarItem(
                   label: 'Ingressos',
-                  icon: Icon(Icons.bookmark),
-                  backgroundColor: Color(0xFFFC5404),
+                  icon: Icon(Icons.bookmark, color: AppColors.light),
+                  backgroundColor:AppColors.primary,
                 ),
                 BottomNavigationBarItem(
                   label: 'Perfil',
-                  icon: Icon(Icons.person),
-                  backgroundColor: Color(0xFFFC5404),
+                  icon: Icon(Icons.person, color: AppColors.light),
+                  backgroundColor: AppColors.primary,
                 ),
               ],
             );

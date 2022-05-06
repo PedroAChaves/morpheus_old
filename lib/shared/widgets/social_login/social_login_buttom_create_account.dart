@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:morpheus/modules/Home/start_page.dart';
 import 'package:morpheus/shared/themes/app_colors.dart';
 
-class CreateAccountButtom extends StatelessWidget {
+class CreateAccountButton extends StatefulWidget {
   final VoidCallback onTap;
-  const CreateAccountButtom({Key? key, required this.onTap}) : super(key: key);
+  final String title;
+  const CreateAccountButton(
+      {Key? key, required this.onTap, required this.title})
+      : super(key: key);
 
+  @override
+  State<CreateAccountButton> createState() => _CreateAccountButtonState();
+}
+
+class _CreateAccountButtonState extends State<CreateAccountButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,15 +22,10 @@ class CreateAccountButtom extends StatelessWidget {
         style: ButtonStyle(
             backgroundColor:
                 MaterialStateProperty.all<Color>(AppColors.primary)),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const StartPage()),
-          );
-        },
-        child: const Text(
-          "Fazer login",
-          style: TextStyle(color: Colors.white, fontSize: 18),
+        onPressed: () => widget.onTap,
+        child: Text(
+          widget.title,
+          style: const TextStyle(color: Colors.white, fontSize: 18),
         ), //Text
       ),
     );

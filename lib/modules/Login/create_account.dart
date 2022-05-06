@@ -28,22 +28,22 @@ class _CreateAccountState extends State<CreateAccount> {
                 padding: const EdgeInsets.only(top: 20),
                 child: Center(
                   child: Image.asset(
-                    'images/logoLaranja.png',
-                    width: 130,
-                    height: 40,
+                    'images/black_title.png',
+                    width: 170,
+                    height: 80,
                     scale: 1,
                   ),
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.only(left: 20, top: 40),
+                padding: EdgeInsets.only(left: 20, top: 25),
                 child: Text(
                   'Nome:',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   // autofocus: true,
                   cursorColor: AppColors.primary,
@@ -52,7 +52,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'Informe seu nome completo',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,
@@ -67,8 +67,8 @@ class _CreateAccountState extends State<CreateAccount> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   cursorColor: AppColors.primary,
                   decoration: InputDecoration(
@@ -76,7 +76,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'Email',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,
@@ -91,8 +91,8 @@ class _CreateAccountState extends State<CreateAccount> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   cursorColor: AppColors.primary,
                   obscureText: true,
@@ -101,9 +101,9 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    suffixIcon: const Icon(Icons.remove_red_eye_outlined,
-                        color: Color(0xFFFC5404)),
-                    border: const OutlineInputBorder(),
+                    suffixIcon: Icon(Icons.remove_red_eye_outlined,
+                        color: Color(0xFF20202c)),
+                    border: OutlineInputBorder(),
                     labelText: 'Senha',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,
@@ -118,8 +118,8 @@ class _CreateAccountState extends State<CreateAccount> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   cursorColor: AppColors.primary,
                   decoration: InputDecoration(
@@ -127,7 +127,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'Informe seu número de celular',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,
@@ -142,8 +142,8 @@ class _CreateAccountState extends State<CreateAccount> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   cursorColor: AppColors.primary,
                   decoration: InputDecoration(
@@ -151,7 +151,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'Informe seu CPF',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,
@@ -231,8 +231,22 @@ class _CreateAccountState extends State<CreateAccount> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              //   child: TextButton(
+              //     style: ButtonStyle(
+              //       backgroundColor:
+              //           MaterialStateProperty.all<Color>(Colors.white),
+              //     ),
+              //     onPressed: () {},
+              //     child: const Text(
+              //       'Fazer Login',
+              //       style: TextStyle(color: Colors.white, fontSize: 18),
+              //     ), //Text
+              //   ),
+              // ),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   cursorColor: AppColors.primary,
                   obscureText: true,
@@ -241,9 +255,14 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    suffixIcon: const Icon(Icons.add_photo_alternate_outlined,
-                        color: Color(0xFFFC5404)),
-                    border: const OutlineInputBorder(),
+                    suffixIcon: InkWell(
+                      child: Icon(
+                        Icons.add_photo_alternate_outlined,
+                        color: Color(0xFF20202c),
+                      ),
+                      // onTap: () {},
+                    ),
+                    border: OutlineInputBorder(),
                     labelText: '',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,
@@ -258,8 +277,8 @@ class _CreateAccountState extends State<CreateAccount> {
                   style: TextStyle(fontSize: 20),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 15, right: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, top: 15, right: 20),
                 child: TextField(
                   cursorColor: AppColors.primary,
                   obscureText: true,
@@ -268,7 +287,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       borderSide:
                           BorderSide(color: AppColors.primary, width: 2),
                     ),
-                    border: const OutlineInputBorder(),
+                    border: OutlineInputBorder(),
                     labelText: 'insira o link da foto',
                     floatingLabelStyle: TextStyle(color: AppColors.primary),
                     fillColor: Colors.white,

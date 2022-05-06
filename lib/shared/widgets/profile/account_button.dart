@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:morpheus/shared/themes/app_colors.dart';
 
 class AccountButton extends StatefulWidget {
   final Icon icon;
@@ -23,11 +24,7 @@ class _AccountButtonState extends State<AccountButton> {
       height: 40,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(5),
-            topRight: Radius.circular(5),
-            bottomLeft: Radius.circular(5),
-            bottomRight: Radius.circular(5)),
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.8),
@@ -41,16 +38,16 @@ class _AccountButtonState extends State<AccountButton> {
         onPressed: () => Navigator.pushNamed(context, widget.pagePath),
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color>(
-            Colors.black,
+            AppColors.primary,
           ),
           overlayColor: MaterialStateProperty.all<Color>(
-            const Color(0xffe5e5e5),
+            AppColors.light
           ),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),
               side: const BorderSide(
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: AppColors.primary,
                 width: 1,
               ),
             ),
